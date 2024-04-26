@@ -1,0 +1,35 @@
+<div class="bg-main-light w-75 mx-auto rounded shadow p-4 my-4">
+
+    <h3>Shop Cart</h3>
+    <h6 class="text-main">Total price:{{cartData?.totalCartPrice}}EGB</h6>
+
+    <div *ngFor="let product of cartData?.products" class="row align-items-center border-bottom py-3">
+
+        <div class="col-md-1">
+            <i (click)=" addToCart(product.product._id)" class="fa-regular fa-heart heart"></i>
+            <img class="w-100" [src]="product?.product?.imageCover" alt="">
+        </div>
+        <div class="col-md-11 d-flex justify-content-between">
+            <div>
+                <h6>{{product?.product?.title}}</h6>
+                <h6 class="text-main">price:{{product.price}}</h6>
+                <button (click)="renoveItem(product.product._id)" class="btn m-0 p-0"><i
+                        class="fa-regular text-main fa-trash-can"></i> Remove</button>
+            </div>
+            <div>
+                <button (click)="ubdatItemCount(product.product._id, product.count+1)"
+                    class="btn border-main btn-sm">+</button>
+                <span class="mx-2">{{product.count}}</span>
+                <button (click)="ubdatItemCount(product.product._id, product.count-1)"
+                    class="btn border-main btn-sm">-</button>
+            </div>
+
+        </div>
+
+    </div>
+    <button class="btn bg-main text-white">
+        <a routerLink="/checkout">
+            Online Payment
+        </a>
+    </button>
+</div>

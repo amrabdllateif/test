@@ -1,0 +1,7 @@
+.navbar {
+    background-color: var(--sec-color);
+   
+}
+a.active {
+    background-color: var(--main-color);
+}

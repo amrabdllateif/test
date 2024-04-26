@@ -1,0 +1,31 @@
+<div class=" bg-main-light w-75 mx-auto rounded shadow p-4 my-4">
+    <h2>login naw :</h2>
+
+
+    <form (ngSubmit)="submitlogin(loginForm)" [formGroup]="loginForm">
+
+   
+    <label for="email">Email:</label>
+    <input formControlName="email" type="email" class="form-control mb-2 " id="email">
+    <div *ngIf="loginForm.get('email')?.getError&& loginForm.get('email')?.touched"class="alert alert-danger"> 
+        <p *ngIf="loginForm.get('email')?.getError('email') "class="m-0"> email in valid</p>
+        <p *ngIf="loginForm.get('email')?.getError('required') "class="m-0"> emailis Required</p>
+       </div>
+    <label for="password">Password:</label>
+    <input formControlName="password" type="password" class="form-control mb-2 " id="password">
+    <div *ngIf="loginForm.get('password')?.getError&& loginForm.get('password')?.touched"class="alert alert-danger"> 
+        <p *ngIf="loginForm.get('password')?.getError('pattern') "class="m-0"> password must with appercase then from 3 to 10</p>
+        <p *ngIf="loginForm.get('password')?.getError('required') "class="m-0"> password is Required</p>
+       </div>
+        <p class="text-center ">Don't have an account?</p>
+        <a class=" nav-link text-center link-primary" routerLink="/register"> Create new account</a>
+
+        <button [disabled]="loginForm.invalid " type="submit"
+            class="btn btn-info ms-auto d-block bg-main text-white border-0">login
+
+            <span *ngIf="isLoading">
+                <i class="fas fa-spin fa-spinner"></i>
+            </span>
+
+        </button>
+    </form>

@@ -1,0 +1,39 @@
+<app-mainslider></app-mainslider>
+<app-categories></app-categories>
+
+
+
+
+<div class="row">
+
+    <div>
+        <input type="text" class="form-control my-2  w-50 mx-auto" placeholder="Search By Product Name">
+
+    </div>
+    
+
+    <div *ngFor="let Product of Products" class="col-md-2">
+        <div class="product px-2 py-4">
+            <i (click)="addFav(Product._id)" class="fa-regular fa-heart heart"></i>
+
+            <a [routerLink]="['/Productdetails' ,Product._id]">
+                <img class="w-100" src={{Product.imageCover}} alt="">
+
+                <span class="text-main fw-bold font-sm">{{Product.category.name}}</span>
+                <h3 class="h6 fw-bolder">{{Product.title.split(' ').slice(0,2).join(' ')}}</h3>
+                <div class="d-flex align-items-center justify-content-between">
+                    <span class="text-muted fw-bold font-sm">{{Product.price}}EGP</span>
+                    <div>
+                        <i [class.rating-color]="Product.ratingsAverage >=num" *ngFor="let num of [1,2,3,4,5]"
+                            class="fas fa-star"></i>
+
+                        <span class="text-muted fw-bold font-sm">{{Product.ratingsAverage}}</span>
+                    </div>
+                </div>
+            </a>
+            <button (click)="addToCart(Product._id)" class="btn bg-main text-white w-100 my-2"> + add To Cart</button>
+        </div>
+
+    </div>
+
+</div>

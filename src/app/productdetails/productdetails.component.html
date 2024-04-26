@@ -1,0 +1,31 @@
+
+<div class="row bg-main-light w-75 mx-auto rounded shadow p-4 mb-4">
+<div class="col-md-4">
+    <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let imge of Productdetails.images ">
+          <ng-template carouselSlide>
+            <img [src]="imge">
+          </ng-template>
+        </ng-container>
+    
+      </owl-carousel-o>
+<!-- <img class="w-100" [src]="Productdetails.imageCover" alt=""> -->
+</div>
+<div class="col-md-8">
+    <h2 class="h4 fw-bolder mb-2">{{Productdetails.title}}</h2>
+    <p class="text-muted  p-3">{{Productdetails.description}}</p>
+    <div class="d-flex align-items-center justify-content-between">
+        <span class="text-muted fw-bold font-sm">{{Productdetails.price}}</span>
+        <div>
+            <i class="fas fa-star rating-color"></i>
+        <span class="text-muted fw-bold font-sm">{{Productdetails.ratingsAverage}}</span>
+        </div>
+    </div>
+    <button (click)="addToCart(Productdetails._id)" class="btn bg-main text-white w-100 my-2"> + add To Cart</button>
+    <div>
+       
+</div>
+
+
+</div>

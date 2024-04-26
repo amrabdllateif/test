@@ -1,0 +1,13 @@
+.home {
+    color: #fff;
+    background-color: var(--main-color);
+    height: 100vh;
+
+}
+.lines span {
+    width: 80px;
+    background-color: #fff;
+    height: 4px;
+    display: inline-block;
+}
+
